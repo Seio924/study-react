@@ -18,11 +18,20 @@ export default class SearchFormView extends View {
 
   bindEvent() {
     on(this.inputElement, "keyup", () => this.handleKeyup());
+    on(this.element, "submit", (event) => this.handleSubmit(event));
   }
 
   handleKeyup() {
     console.log(this.inputElement.value);
     const { value } = this.inputElement;
     this.showResetButton(value.length > 0);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault(); //화면 리프레시 X
+    console.log("submit");
+    const { value } = this.inputElement;
+
+    this.emit("@submit", { value });
   }
 }
