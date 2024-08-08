@@ -6,6 +6,8 @@ export default class View {
   constructor(element) {
     if (!element) throw "no element";
 
+    console.log(tag);
+
     this.element = element;
     this.originalDisplay = this.element.style.dispaly || "";
 
