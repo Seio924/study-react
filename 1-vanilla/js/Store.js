@@ -25,4 +25,8 @@ export default class Store {
     this.searchKeyword = "";
     this.searchResult = [];
   }
+
+  getKeywordList() {
+    return this.storage.keywordData;
+  }
 }
