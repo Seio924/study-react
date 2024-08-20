@@ -17,4 +17,9 @@ export default class Store {
       product.name.include(keyword)
     );
   }
+
+  reset() {
+    this.searchKeyword = "";
+    this.searchResult = [];
+  }
 }
