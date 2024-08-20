@@ -18,7 +18,8 @@ export default class Controller {
       .on("@submit", (event) => this.search(event.detail.value))
       .on("@reset", () => {
         this.reset();
-      });
+      })
+      .on("@change", (event) => this.changeTab(event.detail.value));
   }
 
   search(searchKeyword) {
@@ -44,5 +45,10 @@ export default class Controller {
   renderSearchResult() {
     this.tabView.hide();
     this.searchResultView.show(this.store.searchResult);
+  }
+
+  changeTab(tab) {
+    this.store.selectedTab = tab;
+    this.render();
   }
 }
